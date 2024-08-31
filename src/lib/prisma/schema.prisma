@@ -1,0 +1,44 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mongodb"
+    url      = env("DB_URL")
+}
+
+//  Users for AUTH
+enum userRole {
+    SUPER_ADMIN
+    ADMIN
+    SUPERVISOR
+    USER
+}
+
+model User {
+    id               String    @id @default(auto()) @map("_id") @db.ObjectId
+    email            String    @unique
+    name             String?
+    tel              String?   @unique
+    password         String?
+    role             userRole  @default(USER)
+    avatar           String?
+    resetToken       String?
+    resetTokenExpiry DateTime?
+
+    @@map("users")
+}
+
+enum mediaTypes {
+    BLOGPOST
+    IMAGE
+}
+
+model Media {
+    id      String     @id @default(auto()) @map("_id") @db.ObjectId
+    type    mediaTypes
+    title   String
+    content String
+
+    @@map("media")
+}
