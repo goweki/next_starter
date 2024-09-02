@@ -57,12 +57,7 @@ const routes = {
     { label: "blog", link: "/blog", icon: LibraryBig },
     { label: "contacts", link: "/contacts", icon: Contact },
   ],
-  auth: [
-    { label: "home", link: "/user", icon: Home },
-    { label: "mps", link: "/user/mps", icon: Users },
-    { label: "legislations", link: "/user/legislations", icon: BookOpen },
-    { label: "Settings", link: "/user/settings", icon: Settings },
-  ],
+  auth: [{ label: "home", link: "/user", icon: Home }],
 };
 
 const Navbar = () => {
@@ -131,12 +126,12 @@ const components: { title: string; href: string; description: string }[] = [
 
 const NavigationMenuComponent = () => {
   const pathname = usePathname();
-  console.log("pathname: ", pathname);
+  // console.log("pathname: ", pathname);
   return (
     <NavigationMenu>
       <NavigationMenuList>
         {(pathname.includes("/user") ? routes.auth : routes.unauth).map(
-          ({ label, link, icon: Icon }) => (
+          ({ label, link }) => (
             <NavigationMenuItem key={label}>
               <Link href={link} legacyBehavior passHref>
                 {/* <NavigationMenuLink className={navigationMenuTriggerStyle()}> */}
@@ -221,7 +216,6 @@ const HamburgerMenu = () => {
 
 const UserDropDown = () => {
   const { data: userSession, status: authStatus } = useSession();
-  const pathname = usePathname();
   //
   //
   return authStatus === "loading" ? (
@@ -260,9 +254,7 @@ const UserDropDown = () => {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  ) : (
-    <></>
-  );
+  ) : null;
 };
 
 export default Navbar;

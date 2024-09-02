@@ -37,8 +37,33 @@ enum mediaTypes {
 model Media {
     id      String     @id @default(auto()) @map("_id") @db.ObjectId
     type    mediaTypes
+    image   String
     title   String
     content String
 
     @@map("media")
 }
+
+// model Student {
+//     id     String @id @default(auto()) @map("_id") @db.ObjectId
+//     avatar String
+//     name   String
+//     admNo  String
+
+//     guardianIDs String[]   @db.ObjectId
+//     guardians   Guardian[] @relation(fields: [guardianIDs], references: [id])
+
+//     @@map("students")
+// }
+
+// model Guardian {
+//     id     String @id @default(auto()) @map("_id") @db.ObjectId
+//     name   String
+//     avatar String
+//     title  String
+
+//     studentIDs String[]  @db.ObjectId
+//     students   Student[] @relation(fields: [studentIDs], references: [id])
+
+//     @@map("guardians")
+// }

@@ -91,7 +91,7 @@ type EmailConfig = {
 
 const config: Record<string, EmailConfig> = {
   signUp: {
-    desc: "Sign Up (bunge-scope)",
+    desc: "Sign Up (Goweki Chat)",
     title: "Set New Password",
     parA_html:
       "Welcome! Click the button below to complete your sign-up process; or alternatively use the link: ",
@@ -101,7 +101,7 @@ const config: Record<string, EmailConfig> = {
     links: [{ label: "github", href: "https://github.com/goweki" }],
   },
   reset: {
-    desc: "Set New Password (bunge-scope)",
+    desc: "Set New Password (Goweki Chat)",
     title: "Password Reset Info",
     parA_html:
       "We received a request to reset your password. Click the button below to set a new password; or alternatively use the link: ",

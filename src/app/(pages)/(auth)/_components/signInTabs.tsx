@@ -268,7 +268,7 @@ export function SignInTabs() {
               <Input
                 id="password"
                 type="password"
-                placeholder="***"
+                placeholder="***password"
                 value={fData.password}
                 onChange={(e) => {
                   const val = e.target.value;

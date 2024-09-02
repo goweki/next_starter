@@ -155,7 +155,7 @@ export default function ResetPassword({
   }
   // Render
   return (
-    <Card className="mx-auto w-[400px]">
+    <Card className="m-auto w-[400px]">
       <CardHeader>
         <CardTitle className="text-xl">
           {fData.oldName ? "Update Password" : "Create New Password"}

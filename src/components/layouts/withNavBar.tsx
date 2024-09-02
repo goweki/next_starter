@@ -6,7 +6,7 @@ export default function WithNavLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
+    <div className="w-full">
       <Navbar />
       <main>{children}</main>
     </div>

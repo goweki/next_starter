@@ -8,18 +8,20 @@ const getHandler = async (request: Request) => {
   try {
     // console.log(`GET REQUEST: UI data: `);
 
-    // //  API call
-    // const data1 = await prisma.mp.findMany({
-    //   include: {
-    //     constituency: true,
-    //   },
-    // });
+    //  Prisma queries
+    const media = await prisma.media.findMany();
 
     // const data2 = await prisma.legislation.findMany();
-    
-    //if (!data1 || !data2) {console.error("failed to fetch data: api/data - GET"); return Response.json({ error: "DATABASE ERROR" });}
+
+    //no data
+    if (!media) {
+      console.error("failed to fetch data: api/data - GET");
+      return Response.json({ error: "DATABASE ERROR" });
+    }
+
+    //success
     return Response.json({
-      success: { data1: [], data2: [] },
+      success: { media },
     });
   } catch (err: any) {
     console.error("ERROR in route: api/data - GET \n > ", err);
@@ -27,8 +29,5 @@ const getHandler = async (request: Request) => {
   }
 };
 
-
-
 // export const POST = postHandler;
 export const GET = getHandler;
-

@@ -63,10 +63,14 @@
   * {
     @apply border-border;
   }
-  html {
+  /* html {
     @apply bg-background text-foreground;
   }
   body {
     @apply border-x-2 border-border/10 shadow-lg min-h-screen w-full container flex;
+  } */
+  html,
+  body {
+    @apply bg-background text-foreground h-full !p-0 container;
   }
 }

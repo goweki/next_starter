@@ -1,7 +1,11 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 export default function LandingPage() {
+  const { data: userSession, status: authStatus } = useSession();
   // render
   return (
     <main className="flex flex-col items-center justify-between p-8 lg:p-16 max-h-[800px] w-full">
@@ -17,7 +21,14 @@ export default function LandingPage() {
             // target="_blank"
             // rel="noopener noreferrer"
           >
-            Sign In
+            {userSession?.user ? (
+              <span>
+                Continue as
+                <span className="font-bold"> {userSession.user.name}</span>
+              </span>
+            ) : (
+              `Sign In`
+            )}
           </Link>
         </div>
       </header>
